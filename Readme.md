@@ -54,4 +54,4 @@ After all these configurations, this project is ready for complete full-stack de
 
 4. Error Handling
 
-    Used try-catch blocks for async operations to handle promise rejections
+    Used try-catch blocks for async operations to handle promise rejections.

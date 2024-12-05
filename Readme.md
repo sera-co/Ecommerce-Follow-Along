@@ -55,3 +55,17 @@ After all these configurations, this project is ready for complete full-stack de
 4. Error Handling
 
     Used try-catch blocks for async operations to handle promise rejections.
+
+# Milestone 4:
+
+1.User Model
+    -created a file named user.model.js in the models directory.
+    -Define schema using mongoose
+2.Setting up controllers
+    -Created a file named user.controller.js in the controllers directory.
+3.Enabling file uploads using multer
+    -Install multer(npm i multer)
+    -Update the Controller
+    -Update the routes.
+
+

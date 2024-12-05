@@ -58,14 +58,14 @@ After all these configurations, this project is ready for complete full-stack de
 
 # Milestone 4:
 
-1.User Model
-    -created a file named user.model.js in the models directory.
-    -Define schema using mongoose
-2.Setting up controllers
-    -Created a file named user.controller.js in the controllers directory.
-3.Enabling file uploads using multer
-    -Install multer(npm i multer)
-    -Update the Controller
-    -Update the routes.
+1. User Model
+    1. created a file named user.model.js in the models directory.
+    2. Define schema using mongoose
+2. Setting up controllers
+    1. Created a file named user.controller.js in the controllers directory.
+3. Enabling file uploads using multer
+    1. Install multer(npm i multer)
+    2. Update the Controller
+    3. Update the routes.
 
 

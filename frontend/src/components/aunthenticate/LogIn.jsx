@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 function LogInPage() {
     
     return (
@@ -34,6 +35,9 @@ function LogInPage() {
                         >
                             Login
                         </button>
+                        <p className="text-center">
+                            Don't have an account ? <Link to={'/signup'}>Sign up</Link>
+                        </p>
                     </form>
                 </div>
             </div>

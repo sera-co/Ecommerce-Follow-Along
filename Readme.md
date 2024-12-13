@@ -68,4 +68,31 @@ After all these configurations, this project is ready for complete full-stack de
     2. Update the Controller
     3. Update the routes.
 
+# Milestone 5:
+1. Created a signup page
+    1.  Created input field for entering the name,email,password and file uploading.
+2. Created validation Object using Regular expession
+    1. checks the name has more than or equal to 2 letters and has no symbols.
+    2. checks the password has more than 8 characters and less than 128 characters.And checks it has lowercase,uppercase,and special characters.
+    3. checks the email is in correct format
+3. Setup React-Router for the Present Pages.
+
+# Milestone 6:
+1. Generate a JWT Token at Signup:
+    1. Install the jsonwebtoken.(npm i jsonwebtoken)
+2. Create a Verification Link
+    1. Generate a verification link containing the token.
+3. Configure Nodemailer to Send Emails
+
+    1. Install Nodemailer.(npm i nodemailer)
+    2. Use the function to send the verification link to the user's email address.
+
+4. Create an Endpoint to Verify the Token
+
+    1. Develop an API endpoint that verifies the token and activates the user's account.
+
+
+
+
+
 

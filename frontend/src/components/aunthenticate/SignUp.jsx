@@ -12,6 +12,7 @@ function SignUpPage()  {
     const [error,setError]=useState('');
 
     const handleChange=(e)=>{
+        e.preventDefault();
         const{name,value}=e.target
         setData({
             ...data,
@@ -36,6 +37,7 @@ function SignUpPage()  {
         if(typeof PassV=='string' && PassV.length>2){
             return setError(PassV);
         }
+        setError('');
 
     }
 

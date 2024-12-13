@@ -78,5 +78,22 @@ After all these configurations, this project is ready for complete full-stack de
 3. Setup React-Router for the Present Pages.
 
 
+# Milestone 6:
+1. Generate a JWT Token at Signup:
+    1. Install the jsonwebtoken.(npm i jsonwebtoken)
+2. Create a Verification Link
+    1. Generate a verification link containing the token.
+3. Configure Nodemailer to Send Emails
+
+    1. Install Nodemailer.(npm i nodemailer)
+    2. Use the function to send the verification link to the user's email address.
+
+4. Create an Endpoint to Verify the Token
+
+    1. Develop an API endpoint that verifies the token and activates the user's account.
+
+
+
+
 
 

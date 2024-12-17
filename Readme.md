@@ -94,13 +94,21 @@ After all these configurations, this project is ready for complete full-stack de
 
 # Milestone 7:
 1.Signup:
+
     1.Check Existing User: Verify if the user is already registered in the database. 
+    
                            If found, prompt them to log in directly.
+                           
     2.Create New User: If the user is not registered, securely hash their password using bcrypt.js.
+    
                        Then, create a new user entry with their name, email, and hashed password, and save it in the database.
+                       
 2.Login:
+
     1.Validate User: Confirm that the user exists in the database and verify their password.
+    
                      If the credentials are correct, generate a token and send it as cookies.
+                     
                      If the user is not found or the password is incorrect, return a message suggesting they sign up.
 
 

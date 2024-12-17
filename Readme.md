@@ -111,6 +111,24 @@ After all these configurations, this project is ready for complete full-stack de
                      
                      If the user is not found or the password is incorrect, return a message suggesting they sign up.
 
+# Milestone 8:
+
+1.Create the Card Component
+
+    1.Design a flexible and reusable card component that can display product information dynamically.
+    
+    2.Make the component accept props to customize its content, including:
+    
+            1.Product Name
+            2.Product Image
+            3.Product Price
+            
+2.Design the Homepage Layout
+
+    1.Implement a visually appealing layout for the homepage.
+    
+    2.Arrange multiple instances of the card component in a structured and symmetrical grid to provide a clean, organized look.
+
 
 
 

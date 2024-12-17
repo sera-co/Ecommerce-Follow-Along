@@ -2,6 +2,7 @@ const ErrorHandler = require("../utilities/ErrorHandler.js");
 const UserModel = require("../models/user.model.js");
 const transporter = require("../utilities/sendmail.js");
 const jwt = require("jsonwebtoken");
+const bcrypt=require('bcrypt');
 require("dotenv").config({
   path: "./src/config/.env",
 });
@@ -73,5 +74,55 @@ async function verifyUserController(req, res) {
     return res.status(403).send({ message: er.message });
   }
 }
+const signup=async(req,res)=>{
+  const {name,email,password}=req.body;
+  try{
+    const CheckUserPresentinDB=await UserModel.findOne({email:email});
+    if (CheckUserPresentinDB){
+      return res.status(403).send({message:'User aldready present'})
+    }
+    bcrypt.hash(password,10,async function(err,hash){
+      if(err){
+        return res.status(403).send({message:'Please enter the password..'})
+      }
+      await UserModel({
+        Name:name,
+        email,
+        password:hash,
+      })
+    })
+    return res.status(201).send({message:'User created successfully..'})
+  }catch(er){
+    return res.status(500).send({message : er.message})
+  }
+}
+const login=async(req,res)=>{
+  const {email,password}=req.body;
+  try{
+    const CheckUserPresentinDB=await UserModel.findOne({email:email})
+    bcrypt.compare(password,
+      CheckUserPresentinDB.password,
+      function(err,result) {
+        if(err){
+          return res.status(403).send({message:er.message});
+        }
+        let data={
+          id:CheckUserPresentinDB._id,
+          email,
+          password
+        }
+        const token=generateToken(data);
+        return res
+        .status(200)
+        .cookie('token',token)
+        .send({ message: 'User logged in successfully..', success: true });
+      }
+    );
 
-module.exports = { CreateUser, verifyUserController };
+    
+  } catch (er) {
+    return res.status(403).send({ message: er.message, success: false });
+  }
+};
+
+module.exports = { CreateUser, verifyUserController,signup,login };

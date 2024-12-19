@@ -129,6 +129,20 @@ After all these configurations, this project is ready for complete full-stack de
     
     2.Arrange multiple instances of the card component in a structured and symmetrical grid to provide a clean, organized look.
 
+# Milestone 9:
+1.Created a product form which includes:
+    1.title
+    2.description
+    3.rating
+    4.discounted price
+    5.original price
+    6.quantity
+    7.category
+    8.images
+2.Used form data to send the data.
+
+
+
 
 
 

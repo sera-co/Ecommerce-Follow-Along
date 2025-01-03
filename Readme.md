@@ -141,6 +141,15 @@ After all these configurations, this project is ready for complete full-stack de
     8.images
 2.Used form data to send the data.
 
+# Milestone 10:
+1.Product Schema
+    -Use Mongoose to define the schema.
+    -Ensure proper data validation.
+
+
+2. Endpoint Creation
+    -Build a POST endpoint to receive and validate product data
+
 
 
 

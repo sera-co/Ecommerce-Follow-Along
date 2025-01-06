@@ -4,8 +4,8 @@ const SchemaObject={
     title: { type: String, required: true },
     description: { type: String, required: true },
     rating: { type: Number, default: 1 },
-    discountedPrice: { type: Number, required: true },
-    originalPrice: { type: Number, required: true },
+    discountedprice: { type: Number, required: true },
+    originalprice: { type: Number, required: true },
     quantity: { type: Number, required: true, default: 1 },
     category: { type: String, required: true, enum: ['male', 'female', 'kids'] },
     images: [

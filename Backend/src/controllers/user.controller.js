@@ -2,7 +2,7 @@ const ErrorHandler = require("../utilities/ErrorHandler.js");
 const UserModel = require("../models/user.model.js");
 const transporter = require("../utilities/sendmail.js");
 const jwt = require("jsonwebtoken");
-const bcrypt=require('bcrypt');
+const bcrypt=require('bcryptjs');
 require("dotenv").config({
   path: "./src/config/.env",
 });

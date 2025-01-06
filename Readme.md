@@ -150,6 +150,16 @@ After all these configurations, this project is ready for complete full-stack de
 2. Endpoint Creation
     -Build a POST endpoint to receive and validate product data
 
+# Milestone 11:
+1. Created an endpoint and connected the server to the database,retrieves data and send as a response in JSON format.
+2. wrote a query to fetch the data.
+
+# Milestone 12:
+1. Created an endpoint that retrieves product details and sends it as a JSON response.
+2. Connect to database
+3. Use axios to call the API.
+
+
 
 
 

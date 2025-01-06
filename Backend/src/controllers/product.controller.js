@@ -53,4 +53,14 @@ const createProductController=async(requestAnimationFrame,res)=>{
         return res.status(500).send({message:err.message,sucess:false})
     }
 }
-module.exports={createProductController};
+const getProductDataController=async(req,res)=>{
+    try{
+    const data=await ProductModel.find()
+    return res
+    .status(200)
+    .send({data,message:'Data fetched successfully',success:true})
+    }catch(err){
+        return res.status(500).send({message:err.message,success:false})
+    }
+}
+module.exports={createProductController,getProductDataController};

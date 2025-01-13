@@ -8,15 +8,16 @@ const createProductController = async (req, res) => {
   const {
     title,
     description,
+    rating,
     discountedPrice,
     originalPrice,
-    stockQuantity,
+    quantity,
     category,
-    rating,
   } = req.body;
+
   try {
     console.log(req.files, req.body);
-    const ImgArray = req.files.map(async(singleFile, index) => {
+    const arrayImage = req.files.map(async (singleFile, index) => {
       return cloudinary.uploader
         .upload(singleFile.path, {
           folder: "uploads",
@@ -24,36 +25,35 @@ const createProductController = async (req, res) => {
         .then((result) => {
           fs.unlinkSync(singleFile.path);
           return result.url;
-        })
+        });
     });
 
-    const dataImgs = await Promise.all(ImgArray);
-    console.log("Passed clouinary")
-    const StoreproductDetails = await ProductModel.create({
+    const dataImages = await Promise.all(arrayImage);
+    const StoreProductDetails = await ProductModel.create({
       title,
       description,
+      rating,
       discountedPrice,
       originalPrice,
-      quantity: stockQuantity,
+      quantity,
       category,
-      rating,
-      Imgs: dataImgs,
+      images: dataImages,
     });
-
     return res.status(201).send({
-      message: "Image Successfully uploaded",
-      success: true,
-      dataImgs,
-      StoreproductDetails,
+      message: "Image Successfully Uploaded",
+      sucess: true,
+      dataImages,
+      StoreProductDetails,
     });
-  } catch (err) {
-    if (err instanceof multer.MulterError) {
+  } catch (er) {
+    if (er instanceof multer.MulterError) {
       return res.status(400).send({
-        message: "Multer error please send inage less than 5",
+        message: "Multer error plese send image less than 5 ",
         success: false,
       });
     }
-    res.status(500).send({ message: err.message, success: false });
+    console.log(er);
+    return res.status(500).send({ message: er.message, success: false });
   }
 };
 
@@ -73,56 +73,62 @@ const updateProductController = async (req, res) => {
     title,
     description,
     rating,
-    discountPrice,
+    discountedPrice,
     originalPrice,
     quantity,
     category,
   } = req.body;
   const { id } = req.params;
+
+  console.log(req.files)
   try {
-    const checkifproductExists = await ProductModel.findOne({ _id: id });
-
-    if (!checkifproductExists) {
-      return res.status(404).send({ message: "Product not found" });
+    const checkIfProductExists = await ProductModel.findOne({ _id: id });
+    
+    if (!checkIfProductExists) {
+      return res.status(404).send({ message: 'Product Not Found' });
     }
+    console.log("here...")
 
-    const ImgArray = req.files.map((singleFile, index) => {
-      return cloudinary.uploader
-        .upload(singleFile.path, {
-          folder: "uploads",
-        })
-        .then((result) => {
-          fs.unlinkSync(singleFile.path);
-          return result.url;
-        });
-    });
-
-    const Imagedata = await Promise.all(ImgArray);
+    const arrayImage =
+      req.files &&
+      req.files.map(async (singleFile, index) => {
+        return cloudinary.uploader
+          .upload(singleFile.path, {
+            folder: 'uploads',
+          })
+          .then((result) => {
+            fs.unlinkSync(singleFile.path);
+            return result.url;
+          });
+      });
+      console.log("jere",2)
+    const Imagedata = req.files && (await Promise.all(arrayImage));
     const UpdatedImages = req.files ? Imagedata : req.body.images;
-    const findAndupdate = await productModel.findByIdAndUpdate(
+    const findAndUpdate = await ProductModel.findByIdAndUpdate(
       { _id: id },
       {
         title,
         description,
         rating,
-        discountPrice,
+        discountedPrice,
         originalPrice,
         quantity,
         category,
-        images: Imagedata,
+        images: UpdatedImages,
       },
-      { new: true }
+      {
+        new: true,
+      }
     );
 
-    return res
-      .status(201)
-      .send({
-        message: "Document updation successfull",
-        success: true,
-        updatedProduct: findAndUpdate,
-      });
-  } catch (err) {
-    res.status(500).send({ message: err.message, success: false });
+    return res.status(201).send({
+      message: 'Document Updated Successfully',
+      success: true,
+      UpdatedResult: findAndUpdate,
+    });
+  } catch (er) {
+    console.log(er.message);
+    return res.status(500).send({ message: er.message, success: false });
   }
 };
 const getSingleProductDocumentController = async (req, res) => {

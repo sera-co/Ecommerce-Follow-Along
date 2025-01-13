@@ -166,6 +166,13 @@ After all these configurations, this project is ready for complete full-stack de
 3. An edit button is added.
 4. Clicking the button directs to a form with datas aldready given.
 
+# Milestone 14:
+
+1. Created an endpoint to delete data from the database.
+2. Adds a delete button
+3. when the delete button is clicked the product data is deleted from the database.
+
+
 
 
 

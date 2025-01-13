@@ -172,6 +172,13 @@ After all these configurations, this project is ready for complete full-stack de
 2. Adds a delete button
 3. when the delete button is clicked the product data is deleted from the database.
 
+# Milestone 15:
+
+1. Added a Navbar component.
+2. It is responsive design.
+
+
+
 
 
 

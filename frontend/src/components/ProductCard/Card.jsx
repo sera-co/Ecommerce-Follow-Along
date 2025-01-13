@@ -1,4 +1,5 @@
-function Card({title,image,description,discountedprice,originalprice,rating}){
+import { Link } from 'react-router-dom';
+function Card({title,image,description,discountedprice,originalprice,rating,id}){
     return(
         <div className="max-w-sm bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
         {/* Image Section */}
@@ -40,6 +41,11 @@ function Card({title,image,description,discountedprice,originalprice,rating}){
             <button className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Add to Cart
             </button>
+            <Link to={`/update-form/${id}`}>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200">
+              Update
+            </button>
+          </Link>
             </div>
         </div>
         </div>

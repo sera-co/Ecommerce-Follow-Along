@@ -159,6 +159,15 @@ After all these configurations, this project is ready for complete full-stack de
 2. Connect to database
 3. Use axios to call the API.
 
+# Milestone 13:
+
+1. Created an endpoint to handle data updates
+2. Received data through HTTP requests and updates the products added in the database.
+3. An edit button is added.
+4. Clicking the button directs to a form with datas aldready given.
+
+
+
 
 
 

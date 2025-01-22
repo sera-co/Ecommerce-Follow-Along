@@ -66,12 +66,17 @@ function ProductEntryPage() {
       formDataBody.append("files", ele);
     });
     console.log(formDataBody, );
+    const token=localStorage.getItem('token');
     await axios
-      .post("http://localhost:8080/product/create-product", formDataBody, {
+    .post(
+      `http://localhost:8080/product/create-product?token=${token}`,
+      formDataBody,
+      {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
-      })
+      }
+    )
       .then((res) => {
         console.log(res);
         return res;

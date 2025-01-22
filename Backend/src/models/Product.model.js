@@ -16,6 +16,7 @@ const SchemaObject={
           'https://as1.ftcdn.net/v2/jpg/04/15/57/10/1000_F_415571034_vkqsUX55YGrlSl0vxhKbfk2xfLczWszH.jpg',
       },
     ],
+    userEmail:{type:String,require:true},
     
   };
 

@@ -74,6 +74,7 @@ function UpdateForm() {
     console.log("formDataBody", formDataBody);
     console.log("Image", Images);
     console.log("formData.images", formData);
+    console.log(formDataBody);
     await axios
       .put(
         `http://localhost:8080/product/update-products/${id}`,

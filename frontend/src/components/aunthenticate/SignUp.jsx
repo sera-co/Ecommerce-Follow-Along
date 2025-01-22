@@ -1,6 +1,7 @@
-import React , { useState } from "react";
+import  React,{ useState } from "react";
 import ValidationObject from '../../validation.js';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import axios from "axios";
 
 function SignUpPage()  {
     const [data,setData]=useState({
@@ -9,19 +10,29 @@ function SignUpPage()  {
         password:'',
         file:'',
     });
+    const navigateUser=useNavigate()
     const [error,setError]=useState('');
 
     const handleChange=(e)=>{
-        e.preventDefault();
-        const{name,value}=e.target
-        setData({
+        // e.preventDefault();
+        const{name,value,files}=e.target
+        if(name=='file'){
+          setData({
+            ...data,
+            [name]:files[0]
+          })
+        }else{
+          setData({
             ...data,
             [name]:value,
         })
+        }
+        
         console.log(data);
 
     }
-    const handleSubmit=(e)=>{
+    const handleSubmit=async(e)=>{
+      e.preventDefault()
         const NameV= ValidationObject.validateName(data.name);
         const EmailV=ValidationObject.validateEmail(data.email);
         const PassV=ValidationObject.validatePass(data.password);
@@ -38,6 +49,24 @@ function SignUpPage()  {
             return setError(PassV);
         }
         setError('');
+        const formDataBody = new FormData();
+        formDataBody.append('email',data.email)
+        formDataBody.append('password',data.password)
+        formDataBody.append('name',data.name)
+        formDataBody.append('file',data.file)
+
+        try{
+          await axios.post('http://localhost:8080/user/signup',formDataBody,{
+            headers:{
+              'Content-Type':'multipart/form-data'
+            }
+          })
+          navigateUser('/login')
+        }catch(err){
+          console.log('Error raising'+ err.message)
+        }
+
+        
 
     }
 

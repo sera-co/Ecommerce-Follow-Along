@@ -1,14 +1,30 @@
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 function Card({title,image,description,discountedprice,originalprice,rating,id,handleDelete}){
+  console.log(discountedprice, originalprice)
+  const handleAddToCart = async () => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/cart/add-to-cart?token=${token}`,
+        { productId: id, quantity: 1 }
+      );
+      console.log('Product Added To Cart Successfully...');
+    } catch (er) {
+      alert(er.message);
+      console.log(er.message);
+    }
+  };
     return(
         <div className="max-w-sm bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
         {/* Image Section */}
         <div className="relative">
+        <Link to={`/product-details/${id}`}>
             <img
             src={image}
             className="w-full h-48 object-cover"
             alt="Product image missing"
-            />
+            /></Link>
             <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
             -20%
             </span>
@@ -29,7 +45,7 @@ function Card({title,image,description,discountedprice,originalprice,rating,id,h
             {/* Rating */}
             <div className="flex items-center mb-3">
             <span className="text-yellow-500">&#9733;&#9733;&#9733;&#9733;&#189;</span>
-            <span className="ml-2 text-sm text-gray-500">({rating})</span>
+            <span className="ml-2 text-sm text-gray-500">{rating}</span>
             </div>
 
             {/* Price and CTA */}
@@ -38,7 +54,8 @@ function Card({title,image,description,discountedprice,originalprice,rating,id,h
                 <span className="text-lg font-bold text-gray-900"> ₹{originalprice}</span>
                 <span className="ml-2 text-sm text-gray-500 line-through">₹{discountedprice}</span>
             </div>
-            <button className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
+            <br></br>
+            <button className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200" onClick={handleAddToCart}>
                 Add to Cart
             </button>
             <Link to={`/update-form/${id}`}>

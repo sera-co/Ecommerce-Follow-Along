@@ -80,28 +80,28 @@ const updateProductController = async (req, res) => {
   } = req.body;
   const { id } = req.params;
 
-  console.log(req.files)
+  console.log(req.files);
   try {
     const checkIfProductExists = await ProductModel.findOne({ _id: id });
-    
+
     if (!checkIfProductExists) {
-      return res.status(404).send({ message: 'Product Not Found' });
+      return res.status(404).send({ message: "Product Not Found" });
     }
-    console.log("here...")
+    console.log("here...");
 
     const arrayImage =
       req.files &&
       req.files.map(async (singleFile, index) => {
         return cloudinary.uploader
           .upload(singleFile.path, {
-            folder: 'uploads',
+            folder: "uploads",
           })
           .then((result) => {
             fs.unlinkSync(singleFile.path);
             return result.url;
           });
       });
-      console.log("jere",2)
+    console.log("jere", 2);
     const Imagedata = req.files && (await Promise.all(arrayImage));
     const UpdatedImages = req.files ? Imagedata : req.body.images;
     const findAndUpdate = await ProductModel.findByIdAndUpdate(
@@ -122,7 +122,7 @@ const updateProductController = async (req, res) => {
     );
 
     return res.status(201).send({
-      message: 'Document Updated Successfully',
+      message: "Document Updated Successfully",
       success: true,
       UpdatedResult: findAndUpdate,
     });

@@ -177,6 +177,19 @@ After all these configurations, this project is ready for complete full-stack de
 1. Added a Navbar component.
 2. It is responsive design.
 
+# Milestone 16:
+1. View details of product title,description,rating,price,category
+2. Display images of the product
+
+# Milestone 17:
+1. Defined a schema to store products.
+2. Endpoint to add product to cart.
+
+# Milestone 18:
+1. Add an endpoint to recieve requests from cart page
+2. Add an enpoint to fetch all products.
+
+
 
 
 

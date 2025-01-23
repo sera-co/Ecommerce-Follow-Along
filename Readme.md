@@ -189,6 +189,12 @@ After all these configurations, this project is ready for complete full-stack de
 1. Add an endpoint to recieve requests from cart page
 2. Add an enpoint to fetch all products.
 
+# Milestone 19:
+1. Added cart UI
+2. the cart page displays all the products added to the cart.
+3. the cart items for each logged in user are fetched from the backend.
+
+
 
 
 

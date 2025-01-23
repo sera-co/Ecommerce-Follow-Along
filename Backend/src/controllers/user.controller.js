@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const cloudinary=require('../utilities/cloudinary.js')
 const fs=require('fs')
-const Usermodel = require("../models/user.model.js");
+// const Usermodel = require("../models/user.model.js");
 require("dotenv").config({
   path: "./src/config/.env",
 });
@@ -103,7 +103,7 @@ const signup = async (req, res) => {
         return res.status(403).send({ message: "Please enter the password.." });
       }
       console.log(hash, "Password", password);
-      await Usermodel.create({
+      await UserModel.create({
         Name:name,
         email,
         password: hash,

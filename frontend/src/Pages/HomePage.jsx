@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../components/ProductCard/Card";
 import axios from "axios";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   const [data, setdata] = useState();
@@ -20,6 +20,11 @@ function HomePage() {
   }, []);
 
   console.log(data);
+  const handleDelete = async (id) => {
+    console.log('id', id);
+    const data = await axios.delete(`http://localhost:8080/product/${id}`);
+    setdata(data.data.data);
+  };
   return (
     <div>
       <h1 className="text-center">Home Page for Follow along</h1>
@@ -41,6 +46,7 @@ function HomePage() {
                 discountedprice={ele.discountedPrice}
                 rating={ele.rating}
                 id={ele._id}
+                handleDelete={handleDelete}
               />
             </div>
           );

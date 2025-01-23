@@ -194,6 +194,11 @@ After all these configurations, this project is ready for complete full-stack de
 2. the cart page displays all the products added to the cart.
 3. the cart items for each logged in user are fetched from the backend.
 
+# Milestone 20:
+1. Created an endpointto fetch user data and profile details.
+2. Display user profile.
+
+
 
 
 

@@ -171,5 +171,32 @@ const getUSerData = async (req, res) => {
     return res.status(500).send({ message: er.message });
   }
 };
+const AddAdressController=async(req,res)=>{
+  const userId=req.UserId;
+  const{city,country,add1,add2,zipCode,addressType}=req.body
+  
+  console.log("Received Address Data:", req.body);
+  try{
+    const userFindOne=await UserModel.findOne({_id:userId})
+    if(!userFindOne){
+      return res.status(400).send({message:"User not found",success:false})
+    }
+    const userAddress={
+      city,
+      country,
+      add1,
+      add2,
+      zipCode,
+      addressType
 
-module.exports = { CreateUser, verifyUserController, signup, login,getUSerData };
+    }
+    userFindOne.address.push(userAddress);
+    console.log(userFindOne.address);
+    const response=await userFindOne.save();
+    return res.status(201).send({message:"User Address Added",success:true,response})
+  }catch(err){
+    return res.status(500).send({message:err.message});
+  }
+}
+
+module.exports = { CreateUser, verifyUserController, signup, login,getUSerData,AddAdressController };

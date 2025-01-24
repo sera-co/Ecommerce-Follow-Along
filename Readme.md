@@ -198,6 +198,14 @@ After all these configurations, this project is ready for complete full-stack de
 1. Created an endpointto fetch user data and profile details.
 2. Display user profile.
 
+# Milestone 21:
+1. Taking user input :city,country,add1,add2,zipcode,adressType
+2. storing it using useState
+
+# Milestone 22:
+1. Takind address details entered by the user.
+2. Adding the address to the database.
+3. Displaying it in the profile Page.
 
 
 

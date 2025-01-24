@@ -4,12 +4,13 @@ const userSchema=new mongoose.Schema({
     email:{type:String,required:[true,"Please enter email"],unique:[true,"Please enter different email"]},
     password:{type:String,required:[true,"Please enter password"]},
     address:[
-        {city:String},
-        {country:String},
-        {address1:String},
-        {address2:String},
-        {zipCode:String},
-        {adressType:String},
+{
+        city:{type:String},
+        country:{type:String},
+        add1:{type:String},
+        add2:{type:String},
+        zipCode:{type:Number},
+        adressType:{type:String},}
     ],
     role:{type:String,default:"user"},
     avatar:{

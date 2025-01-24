@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/navbar';
 import ProfilePage from './Pages/Profile';
 import SinglePageProduct from './Pages/SingleProductPage';
 import CartPage from './Pages/CartPage';
+import AddressCard from './components/AddressComp/AddressCard';
 function App() {
   return (
     <>
@@ -24,6 +25,8 @@ function App() {
         <Route path='/product-details/:id' element={<SinglePageProduct/>}/>
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path='/address' element={<AddressCard/>}/>
+
       </Routes>
     </>
   )

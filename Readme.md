@@ -207,6 +207,15 @@ After all these configurations, this project is ready for complete full-stack de
 2. Adding the address to the database.
 3. Displaying it in the profile Page.
 
+# Milestone 23:
+1. Checkout button in cart Page.
+    - Added a 'Checkout' button in Cart Page.
+    - It navigates to select address page
+2. Select Address Page
+    - displays the addresses from the database.
+
+
+
 
 
 

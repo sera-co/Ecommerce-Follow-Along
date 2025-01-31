@@ -214,6 +214,14 @@ After all these configurations, this project is ready for complete full-stack de
 2. Select Address Page
     - displays the addresses from the database.
 
+# Milestone 24:
+1. Selecting the adress fom select address page.
+2. Goes to order confirmation page.
+3. Display all the products from the cart.
+4. Also calculates the order total.
+5. Place Order button at the bottom of the page.
+
+
 
 
 

@@ -221,6 +221,12 @@ After all these configurations, this project is ready for complete full-stack de
 4. Also calculates the order total.
 5. Place Order button at the bottom of the page.
 
+# Milestone 25:
+1. Retrieve userid based on user's email.
+2. create orders for product.
+3. store the order details in the MongoDB collection.
+
+
 
 
 

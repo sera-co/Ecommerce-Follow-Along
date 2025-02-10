@@ -3,16 +3,22 @@ import { X, RotateCcw } from 'lucide-react';
 export default function CartCard({
   title,
   images,
-  Index,
   description,
   originalPrice,
   discountedPrice,
+  Index,
   rating,
   id,
   createdBy,
+  orderStatus,
 }) {
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow p-4">
+      {orderStatus && (
+        <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm w-[18%] text-center mb-5">
+          {orderStatus}
+        </div>
+      )}
       <div className="flex gap-6">
         {/* Product Image */}
         <div className="relative w-64">

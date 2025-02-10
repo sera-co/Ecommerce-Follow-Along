@@ -5,7 +5,7 @@ const file={
     userId:{type:mongoose.Types.ObjectId,ref:'User'}
 }
 const cartSchema=new mongoose.Schema(file);
-const CartModel=mongoose.model('Cart',cartSchema);
-module.exports=CartModel;
+
+module.exports=mongoose.model('Cart',cartSchema);
 
 

@@ -52,13 +52,13 @@ async function CreateUser(req, res) {
 }
 const generateToken = (data) => {
   const token = jwt.sign(
-    { name: data.name, email: data.email, id: data.id },
+    { name: data.Name, email: data.email, id: data.id },
     process.env.SECRET_KEY
   );
   return token;
 };
 
-const verifyUser = () => {
+const verifyUser = (token) => {
   const verify = jwt.verify(token, process.env.SECRET_KEY);
   if (verify) {
     return verify;
@@ -109,6 +109,7 @@ const signup = async (req, res) => {
             .send({ message: "Please enter the password.." });
         }
         console.log(hash, "Password", password);
+        // console.log("Attempting to create user...")
         await UserModel.create({
           Name: name,
           email,
@@ -118,6 +119,7 @@ const signup = async (req, res) => {
             public_id: `${email}_public_id`,
           },
         });
+        // console.log("User created successfully:", newUser);
         return res.status(201).send({ message: "User created successfully.." });
       } catch (er) {
         return res.status(500).send({ message: er.message });

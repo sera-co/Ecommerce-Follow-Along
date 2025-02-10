@@ -11,14 +11,17 @@ const AddressList = ({ addresses }) => {
      </div>
    );
  }
- const handleClickAddress = (addressId) => {
+ const handleClickAddress = (index) => {
+  const SingleAddress=addresses[index]
+  console.log(addresses,index)
+  localStorage.setItem('address',JSON.stringify(SingleAddress))
    navigate('/order-confirmation');
  };
 
 
  return (
    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-     {addresses.map((address, index) => (
+     {addresses && addresses.map((address, index) => (
        <div
          key={index}
          style={{
@@ -28,7 +31,7 @@ const AddressList = ({ addresses }) => {
            backgroundColor: 'white',
            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
          }}
-         onClick={() => handleClickAddress(address._id)}
+         onClick={() => handleClickAddress(index)}
        >
          <div style={{ marginBottom: '8px' }}>
            <h3
@@ -43,8 +46,8 @@ const AddressList = ({ addresses }) => {
              {address.addressType || 'Address'} {index + 1}
            </h3>
            <div style={{ color: '#4a5568' }}>
-             <p>{address.address1}</p>
-             {address.address2 && <p>{address.address2}</p>}
+             <p>{address.add1}</p>
+             {address.add2 && <p>{address.add2}</p>}
              <p>
                {address.city}
                {address.zipCode && `, ${address.zipCode}`}

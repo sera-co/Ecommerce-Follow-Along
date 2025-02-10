@@ -10,16 +10,15 @@ const orderSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    orderItems: [
+    orderItems: 
       { type: mongoose.Schema.Types.ObjectId, ref: 'Product', require: true },
-    ],
     shippingAddress: {
       country: { type: String, required: true },
       city: { type: String, required: true },
-      address1: { type: String, required: true },
-      address2: { type: String },
+      add1: { type: String, required: true },
+      add2: { type: String },
       zipCode: { type: Number, required: true },
-      addressType: { type: String, required: true },
+      addressType: { type: String},
     },
     totalAmount: {
       type: Number,

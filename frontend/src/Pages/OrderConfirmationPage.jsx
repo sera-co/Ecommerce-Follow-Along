@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import CartCard from '../components/ProductCard/CartCard';
+import { useNavigate } from 'react-router-dom';
 export default function OrderConfirmation() {
   const [cartData, setUsersCartData] = useState([]);
   const [total, setTotal] = useState(0);
   const [userAddress, setAddress] = useState(
     JSON.parse(localStorage.getItem('address')) || {}
   );
+  const navigate=useNavigate();
   // totoal
   // address
   // cart data
@@ -28,6 +30,30 @@ export default function OrderConfirmation() {
     };
     getCartData();
   }, []);
+  const OrderConfirmation = async () => {
+    const token = localStorage.getItem('token');
+    console.log(userAddress)
+
+    if (!token) {
+      return alert('Token is missing please signup');
+    }
+    const response = await axios.post(
+      `http://localhost:8080/orders/confirm-order?token=${token}`,
+      {
+        Items: cartData,
+        address: userAddress,
+        totalAmount: total,
+      }
+    );
+    navigate('/order-history');
+    console.log(response);
+  };
+  const handleClickAddress = (index) => {
+    const SingleAddress=userAddress[index]
+    console.log(userAddress,index)
+    localStorage.setItem('address',JSON.stringify(SingleAddress))
+     navigate('/order-confirmation');
+   };
   return (
     <div>
       <div>
@@ -45,8 +71,8 @@ export default function OrderConfirmation() {
                 {userAddress.addressType || 'Address'}
               </h3>
               <div className="text-gray-600">
-                <p>{userAddress.address1}</p>
-                {userAddress.address2 && <p>{userAddress.address2}</p>}
+                <p>{userAddress.add1}</p>
+                {userAddress.add2 && <p>{userAddress.add2}</p>}
                 <p>
                   {userAddress.city}
                   {userAddress.zipCode && `, ${userAddress.zipCode}`}
@@ -74,7 +100,10 @@ export default function OrderConfirmation() {
             })}
         </div>
         <div className="flex justify-center mt-5">
-          <button className="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-green-500">
+        <button
+            className="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-green-500"
+            onClick={OrderConfirmation}
+          >
             Confirm order
           </button>
         </div>

@@ -17,11 +17,12 @@ const app=express();
 
 
 app.use(express.json())
-app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from this frontend
-    methods: ['GET', 'POST'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
-  }));
+// app.use(cors({
+//     origin: 'http://localhost:5173', // Allow requests from this frontend
+//     methods: ['GET', 'POST'], // Allowed methods
+//     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+//   }));
+app.use(cors())
 app.get('/',(req,res)=>{
     return res.send('heyy there!')
 })

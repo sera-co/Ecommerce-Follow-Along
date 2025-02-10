@@ -11,6 +11,7 @@ export default function CartCard({
   id,
   createdBy,
   orderStatus,
+  handleCancel,
 }) {
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow p-4">
@@ -39,7 +40,10 @@ export default function CartCard({
               <p className="text-lg text-gray-600">{description}</p>
               <p className="text-gray-500 mt-1">Sold by: {createdBy}</p>
             </div>
-            <button className="text-gray-500 hover:text-gray-700">
+            <button
+              className="text-gray-500 hover:text-gray-700"
+              onClick={orderStatus ? () => handleCancel(id) : () => {}}
+            >
               <X className="w-6 h-6" />
             </button>
           </div>

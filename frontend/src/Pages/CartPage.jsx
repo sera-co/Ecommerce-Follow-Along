@@ -17,7 +17,7 @@ function CartPage() {
       );
       console.log(response);
       setUsersCartData(response.data.cartData);
-    };
+    }
 
     getCartData();
   }, []);
@@ -37,6 +37,7 @@ function CartPage() {
               discountedPrice={singleCartObject.productId.discountedPrice}
               id={singleCartObject._id}
               createdBy={'sera@k.com'}
+
             />
           </div>
         );

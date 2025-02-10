@@ -1,6 +1,6 @@
 const mongoose= require('mongoose');
 const userSchema=new mongoose.Schema({
-    Name:{type:String,required:[true,'Please enter name']},
+    name:{type:String,required:[true,'Please enter name']},
     email:{type:String,required:[true,"Please enter email"],unique:[true,"Please enter different email"]},
     password:{type:String,required:[true,"Please enter password"]},
     address:[
@@ -10,7 +10,7 @@ const userSchema=new mongoose.Schema({
         add1:{type:String},
         add2:{type:String},
         zipCode:{type:Number},
-        adressType:{type:String},}
+        addressType:{type:String},}
     ],
     role:{type:String,default:"user"},
     avatar:{
@@ -22,5 +22,6 @@ const userSchema=new mongoose.Schema({
 
 },
 {versionKey:false});
-const UserModel=mongoose.model('User',userSchema);
-module.exports=UserModel;
+
+module.exports=mongoose.model('User',userSchema);
+

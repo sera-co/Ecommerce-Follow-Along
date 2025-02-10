@@ -17,6 +17,8 @@ const verifyUser = (req, res, next) => {
   console.log(data);
   req.userEmailAddress = data.email;
   req.UserId = data.id;
+  console.log(data.id)
+  
   //   req.body.userEmailAddress
   next();
 };

@@ -36,7 +36,7 @@ async function CreateUser(req, res) {
       email,
       password,
     };
-    const token = generateToken(data);
+const token = generateToken(data);
     await transporter.sendMail({
       to: "sera.shine@kalvium.community",
       from: "serajenova@gmail.com",

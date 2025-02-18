@@ -13,6 +13,7 @@ export default function OrderConfirmation() {
   // totoal
   // address
   // cart data
+  const data = useSelector((state) => state.user);
   useEffect(() => {
     const getCartData = async () => {
       const token = localStorage.getItem('token');

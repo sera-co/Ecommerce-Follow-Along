@@ -12,6 +12,7 @@ function ProductEntryPage() {
     quantity: 0,
     category: "",
   });
+  const data = useSelector((state) => state.user);
   const [errorInput, setErrorInput] = useState("");
   const [Images, setImages] = useState(null);
   const handleImageUpload = (e) => {

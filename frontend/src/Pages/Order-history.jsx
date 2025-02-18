@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import CartCard from '../components/ProductCard/CartCard';
 function OrderHistory() {
   const [OrderedData, SetOrderedData] = useState([]);
+  const data = useSelector((state) => state.user);
   const fetchedOrderedProducts = async () => {
     const token = localStorage.getItem('token');
     if (!token) {

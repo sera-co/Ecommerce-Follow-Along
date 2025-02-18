@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function SelectAddress(){
     const [AllAddresses,setAllAddresses]=useState([]);
+    const data = useSelector((state) => state.user);
     useEffect(()=>{
         const fetchAddress=async()=>{
             const token=localStorage.getItem('token')

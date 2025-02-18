@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import CartCard from '../components/ProductCard/CartCard';
 import { useNavigate } from 'react-router-dom';
-import { handlePay } from '../Utils/Razorpay';
+import { handlePay } from '../Utils/razorpay';
 export default function OrderConfirmation() {
   const [cartData, setUsersCartData] = useState([]);
   const [total, setTotal] = useState(0);

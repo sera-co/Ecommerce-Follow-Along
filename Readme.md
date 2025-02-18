@@ -226,6 +226,25 @@ After all these configurations, this project is ready for complete full-stack de
 2. create orders for product.
 3. store the order details in the MongoDB collection.
 
+# Milestone 26:
+1. Retrieve user id based on the email.
+2. Create seperate orders.
+3. Store the order details in database.
+4. Provide an endpoint to retrieve all orders.
+
+# Milestone 27:
+1. Fetch user orders from the database.
+2. Displays order details.
+
+# Milestone 28:
+1. Display cancel button.
+2. When cancelled hide the button.
+3. Provide an endpoint to cancel an order.
+4. Update order status.
+
+
+
+
 
 
 

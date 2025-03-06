@@ -242,6 +242,50 @@ After all these configurations, this project is ready for complete full-stack de
 3. Provide an endpoint to cancel an order.
 4. Update order status.
 
+# Milestone 29 and 30:
+1. Create PayPal Developer account – Sign in or create an account on the PayPal Developer Dashboard.
+2. Access Sandbox Accounts – Navigate to the Sandbox Accounts section to find test accounts. Copy and save the User ID.
+3. Obtain PayPal Client ID – Locate your sandbox account, copy the Client ID, and store it securely for API integration.
+4. Payment Options – The order confirmation page should support Cash on Delivery (COD) and Online Payment via PayPal.
+5. UI Implementation – Add radio buttons for payment selection. When "Online Payment" is selected, dynamically display PayPal payment buttons.
+
+# Milestone 31:
+
+1. Install Package – Run `npm install react-redux` to install the required package.  
+
+2. Create Store Folder– Inside the project, create a `store` folder with two files:  
+   - `store.js` – Configures the Redux store and defines `userReducer` to manage the email state.  
+   - `userActions.js` – Contains the `setEmail` function to update the global email state.  
+
+3. Implement Store & Reducer – Configure the Redux store in `store.js` and define `userReducer` to handle email updates.  
+
+4. Define Action – Implement `setEmail` in `userActions.js` to modify the global email state.  
+
+5. Wrap App with Provider – In `index.js`, wrap the `App` component with the `Provider` and pass the store as a prop.
+
+# Milestone 32:
+
+1. Login Page – Use the `dispatch` method to store the user's email in the global state upon login.  
+
+2. Access Email in Other Pages – Retrieve the stored email using `useSelector` from Redux in other pages.  
+
+3. State Persistence– Ensures the email remains available throughout the app without manually passing props.
+
+# Milestone 33:
+1. Install jsonwebtoken.
+2. generate JWT token.
+3. Set expiration time using maxAge to control the validity of the generated token.
+4. Store the token in a cookie and send it in the response.
+
+
+
+
+
+
+
+
+
+
 
 
 
